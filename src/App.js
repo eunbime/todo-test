@@ -35,7 +35,19 @@ function App() {
   };
 
   const handleDone = (id) => {
-    //
+    const isDoneTodos = todos.filter((todo) => {
+      if (id === todo.id) {
+        if (todo.isDone === false) {
+          return { ...todo, isDone: true };
+        } else if (todo.isDone === true) {
+          return { ...todo, isDone: false };
+        }
+      } else {
+        return todo;
+      }
+
+      setTodos(isDoneTodos);
+    });
   };
 
   return (
@@ -47,7 +59,11 @@ function App() {
         handleTitle={handleTitle}
         handleContents={handleContents}
       />
-      <TodoList todos={todos} handleDelete={handleDelete} />
+      <TodoList
+        todos={todos}
+        handleDelete={handleDelete}
+        handleDone={handleDone}
+      />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 
-function TodoItem({ todo, handleDelete }) {
+function TodoItem({ todo, handleDelete, handleDone }) {
+  console.log(todo);
   return (
     <div>
       <div>
@@ -8,7 +9,9 @@ function TodoItem({ todo, handleDelete }) {
         <p>{todo.contents}</p>
       </div>
       <button onClick={() => handleDelete(todo.id)}>삭제</button>
-      <button>완료</button>
+      <button onClick={() => handleDone(todo.id)}>
+        {todo.isDone ? "취소" : "완료"}
+      </button>
     </div>
   );
 }
