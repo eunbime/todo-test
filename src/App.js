@@ -34,6 +34,10 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const handleDone = (id) => {
+    //
+  };
+
   return (
     <div>
       <TodoForm
